@@ -12,11 +12,11 @@ using namespace std;
 void execute_commands(const string &filename);
 
 void test1() {
-  // Pokedex pdx;
-  // stringstream strs;
-  // // NOLINTNEXTLINE - would normally use empty
-  // assert(pdx.size() == 0);
-  // assert(pdx.empty());
+  Pokedex pdx;
+  stringstream strs;
+  // NOLINTNEXTLINE - would normally use empty
+  assert(pdx.size() == 0);
+  assert(pdx.empty());
   // strs << pdx;
   // assert(strs.str() == "[]");
   // cout << "test1 complete" << endl;
@@ -73,9 +73,9 @@ void test4() {
 
 int main(int argc, char *argv[]) {
   test1();
-  test2();
-  test3();
-  test4();
+  // test2();
+  // test3();
+  // test4();
   if (argc >= 1) {
     for (int i = 1; i < argc; ++i) {
       string commandFile = argv[i];

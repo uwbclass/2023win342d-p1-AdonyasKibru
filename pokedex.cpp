@@ -45,21 +45,29 @@ void Pokedex::insert(const string &pokemon) {
   if (Pokedex::msize == Pokedex::MAX) {
     return;
   }
-  if (Pokedex::msize == 0) {
-    Pokedex::pokemons[0] = pokemon;
+  if (msize == 0) {
+    pokemons[0] = pokemon;
     msize++;
     return;
   }
-  for (int i = 0; i < Pokedex::msize; i++) {
-    if (Pokedex::pokemons[i] > pokemon) {
-      for (int j = 0; j < msize - i; j++) {
-        Pokedex::pokemons[Pokedex::msize - j] =
-            Pokedex::pokemons[Pokedex::msize - j - 1];
-      }
-      Pokedex::pokemons[i] = pokemon;
+
+  if (pokemon < pokemons[0]) {
+    for (int j = 0; j < msize; j++) {
+      pokemons[msize - j] = pokemons[msize - 1 - j];
     }
+    pokemons[0] = pokemon;
+  } else {
+    int i = 1;
+    while (pokemons[i] > pokemon) {
+      i++;
+    }
+    for (int j = 0; j < msize - i; j++) {
+      pokemons[msize - j] = pokemons[msize - 1 - j];
+    }
+    pokemons[i] = pokemon;
   }
-  Pokedex::msize++;
+
+  msize++;
   return;
 }
 

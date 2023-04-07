@@ -1,0 +1,445 @@
+Fri Apr  7 03:04:47 UTC 2023
+Linux LinuxMachine 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wheel)
+=====================================================
+1. Compilation warnings are in the section below
+=====================================================
+=====================================================
+2. Program output are in the section below
+=====================================================
+test1 complete
+test2 complete
+test3 complete
+test4 complete
+*** Executing commands from test-1.txt
+Executing: size
+0
+Executing: max_size
+10
+Executing: empty
+true
+Executing: print
+[]
+Executing: insert Pikachu
+Executing: size
+1
+Executing: empty
+false
+Executing: print
+[Pikachu]
+Executing: insert Bulbasaur
+Executing: size
+2
+Executing: front
+Bulbasaur
+Executing: back
+Pikachu
+Executing: print
+[Bulbasaur, Pikachu]
+Executing: erase 0
+Executing: front
+Pikachu
+Executing: back
+Pikachu
+Executing: print
+[Pikachu]
+Invalid command: 
+*** Executing commands from test-2.txt
+Executing: insert Charmander
+Executing: insert Pikachu
+Executing: insert Bulbasaur
+Executing: print
+[Bulbasaur, Charmander, Pikachu]
+Executing: erase 1
+Executing: print
+[Bulbasaur, Pikachu]
+Invalid command: 
+*** Executing commands from test-3.txt
+Executing: insert Dummy
+Executing: pop_back
+Executing: print
+[]
+Invalid command: garbage_command
+Executing: pop_back
+their are no elements in the pokedex
+Executing: front
+Dummy
+Executing: back
+Dummy
+Executing: erase 0
+the index value you entered is wrong!
+Executing: erase 3
+the index value you entered is wrong!
+Executing: at 0
+The index you entered is wrong!
+Dummy
+Executing: at 5
+The index you entered is wrong!
+Dummy
+Executing: insert A0
+Executing: insert A1
+Executing: insert A2
+Executing: insert A3
+Executing: insert A4
+Executing: insert A5
+Executing: insert A6
+Executing: insert A7
+Executing: insert A8
+Executing: insert A9
+Executing: insert A10
+Executing: print
+[A0, A9, A8, A7, A6, A5, A4, A3, A2, A1]
+Invalid command: 
+Done.
+=====================================================
+3. clang-tidy warnings are in the section below
+=====================================================
+12495 warnings generated.
+24986 warnings generated.
+36462 warnings generated.
+Suppressed 36463 warnings (36462 in non-user code, 1 NOLINT).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+=====================================================
+4. clang-format warnings are in the section below
+=====================================================
+Running clang-format on ./main.cpp
+Running clang-format on ./pokedex-commands.cpp
+Running clang-format on ./pokedex.cpp
+=====================================================
+5. Memory leak issues are in the section below
+=====================================================
+their are no elements in the pokedex
+the index value you entered is wrong!
+the index value you entered is wrong!
+The index you entered is wrong!
+The index you entered is wrong!
+=====================================================
+6. valgrind memory test is in the section below. Look for "definitely lost" 
+=====================================================
+their are no elements in the pokedex
+the index value you entered is wrong!
+the index value you entered is wrong!
+The index you entered is wrong!
+The index you entered is wrong!
+==4062== Memcheck, a memory error detector
+==4062== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==4062== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==4062== Command: ./a.out test-1.txt test-2.txt test-3.txt
+==4062== Parent PID: 3938
+==4062== 
+==4062== 
+==4062== HEAP SUMMARY:
+==4062==     in use at exit: 0 bytes in 0 blocks
+==4062==   total heap usage: 13 allocs, 13 frees, 103,961 bytes allocated
+==4062== 
+==4062== All heap blocks were freed -- no leaks are possible
+==4062== 
+==4062== For lists of detected and suppressed errors, rerun with: -s
+==4062== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+=====================================================
+7. Code coverage information is in the section below
+=====================================================
+their are no elements in the pokedex
+the index value you entered is wrong!
+the index value you entered is wrong!
+The index you entered is wrong!
+The index you entered is wrong!
+File '/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/main.cpp':
+Name                        Regions    Miss   Cover     Lines    Miss   Cover  Branches    Miss   Cover
+-------------------------------------------------------------------------------------------------------
+test1()                           1       0 100.00%         9       3  66.67%         0       0   0.00%
+test2()                           1       0 100.00%        13       5  61.54%         0       0   0.00%
+test3()                           1       0 100.00%        18       6  66.67%         0       0   0.00%
+test4()                           1       0 100.00%        14       2  85.71%         0       0   0.00%
+main                              6       0 100.00%        14       0 100.00%         4       1  75.00%
+-------------------------------------------------------------------------------------------------------
+TOTAL                            10       0 100.00%        68      16  76.47%         4       1  75.00%
+
+File '/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/pokedex-commands.cpp':
+Name                                                                                                       Regions    Miss   Cover     Lines    Miss   Cover  Branches    Miss   Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+execute_commands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)        39       0 100.00%        53       0 100.00%        26       0 100.00%
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                           39       0 100.00%        53       0 100.00%        26       0 100.00%
+
+File '/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/pokedex.cpp':
+Name                                                                                                       Regions    Miss   Cover     Lines    Miss   Cover  Branches    Miss   Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pokedex::Pokedex()                                                                                               1       0 100.00%         1       0 100.00%         0       0   0.00%
+Pokedex::size() const                                                                                            1       0 100.00%         1       0 100.00%         0       0   0.00%
+Pokedex::max_size()                                                                                              1       0 100.00%         1       0 100.00%         0       0   0.00%
+Pokedex::empty() const                                                                                           1       0 100.00%         1       0 100.00%         0       0   0.00%
+Pokedex::at[abi:cxx11](int) const                                                                                5       0 100.00%         7       0 100.00%         4       1  75.00%
+Pokedex::front[abi:cxx11]() const                                                                                1       0 100.00%         1       0 100.00%         0       0   0.00%
+Pokedex::back[abi:cxx11]() const                                                                                 4       0 100.00%         6       0 100.00%         2       0 100.00%
+Pokedex::insert(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)         16       0 100.00%        19       0 100.00%        10       0 100.00%
+Pokedex::pop_back()                                                                                              4       0 100.00%         7       0 100.00%         2       0 100.00%
+Pokedex::erase(int)                                                                                              9       0 100.00%        10       0 100.00%         6       1  83.33%
+operator<<(std::ostream&, Pokedex const&)                                                                        6       0 100.00%        11       0 100.00%         4       0 100.00%
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                           49       0 100.00%        65       0 100.00%        28       2  92.86%
+/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/main.cpp:
+    1|       |
+    2|       |#include "pokedex.h"
+    3|       |#include <cassert>
+    4|       |#include <fstream>
+    5|       |#include <iostream>
+    6|       |#include <sstream>
+    7|       |#include <stdexcept>
+    8|       |
+    9|       |using namespace std;
+   10|       |
+   11|       |// forward delaration, defined in library-commands.cpp
+   12|       |void execute_commands(const string &filename);
+   13|       |
+   14|      1|void test1() {
+   15|      1|  Pokedex pdx;
+   16|      1|  stringstream strs;
+   17|       |  // NOLINTNEXTLINE - would normally use empty
+   18|      1|  assert(pdx.size() == 0);
+   19|      0|  assert(pdx.empty());
+   20|      0|  strs << pdx;
+   21|      1|  assert(strs.str() == "[]");
+   22|      0|  cout << "test1 complete" << endl;
+   23|      1|}
+   24|       |
+   25|      1|void test2() {
+   26|      1|  Pokedex pdx;
+   27|      1|  stringstream strs;
+   28|      1|  pdx.insert("Pikachu");
+   29|      1|  assert(pdx.size() == 1);
+   30|      0|  assert(!pdx.empty());
+   31|      0|  assert(pdx.at(0) == "Pikachu");
+   32|      0|  assert(pdx.front() == pdx.back());
+   33|      0|  strs.str("");
+   34|      1|  strs << pdx;
+   35|      1|  assert(strs.str() == "[Pikachu]");
+   36|      0|  cout << "test2 complete" << endl;
+   37|      1|}
+   38|       |
+   39|      1|void test3() {
+   40|      1|  Pokedex pdx;
+   41|      1|  stringstream strs;
+   42|      1|  pdx.insert("Pikachu");
+   43|      1|  pdx.insert("Charmander");
+   44|      1|  assert(pdx.size() == 2);
+   45|      0|  assert(pdx.at(0) == pdx.front());
+   46|      0|  assert(pdx.at(1) == pdx.back());
+   47|      0|  strs.str("");
+   48|      1|  strs << pdx;
+   49|      1|  assert(strs.str() == "[Charmander, Pikachu]");
+   50|       |
+   51|      0|  pdx.erase(0);
+   52|      1|  assert(pdx.front() == pdx.back());
+   53|      0|  strs.str("");
+   54|      1|  strs << pdx;
+   55|      1|  assert(strs.str() == "[Pikachu]");
+   56|      0|  cout << "test3 complete" << endl;
+   57|      1|}
+   58|       |
+   59|      1|void test4() {
+   60|      1|  Pokedex pdx;
+   61|      1|  stringstream strs;
+   62|      1|  pdx.insert("Charmander");
+   63|      1|  pdx.insert("Pikachu");
+   64|      1|  pdx.insert("Bulbasaur");
+   65|      1|  strs << pdx;
+   66|      1|  assert(strs.str() == "[Bulbasaur, Charmander, Pikachu]");
+   67|      0|  pdx.erase(1);
+   68|      1|  strs.str("");
+   69|      1|  strs << pdx;
+   70|      1|  assert(strs.str() == "[Bulbasaur, Pikachu]");
+   71|      0|  cout << "test4 complete" << endl;
+   72|      1|}
+   73|       |
+   74|      1|int main(int argc, char *argv[]) {
+   75|      1|  test1();
+   76|      1|  test2();
+   77|      1|  test3();
+   78|      1|  test4();
+   79|      1|  if (argc >= 1) {
+   80|      5|    for (int i = 1; i < argc; ++i) {
+   81|      4|      string commandFile = argv[i];
+   82|      4|      cout << "*** Executing commands from " << commandFile << endl;
+   83|      4|      execute_commands(commandFile);
+   84|      4|    }
+   85|      1|  }
+   86|      1|  cout << "Done." << endl;
+   87|      1|}
+
+/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/pokedex-commands.cpp:
+    1|       |// defines execute_commands for reading commands for Pokedex
+    2|       |
+    3|       |#include "pokedex.h"
+    4|       |#include <cassert>
+    5|       |#include <fstream>
+    6|       |#include <iostream>
+    7|       |#include <sstream>
+    8|       |#include <stdexcept>
+    9|       |
+   10|       |using namespace std;
+   11|       |
+   12|      4|void execute_commands(const string &filename) {
+   13|      4|  ifstream ifs(filename);
+   14|      4|  if (!ifs.good()) {
+   15|      1|    cout << "Failed to open " << filename << endl;
+   16|      1|    return;
+   17|      1|  }
+   18|      3|  Pokedex pdx;
+   19|     52|  while (ifs.good()) {
+   20|     49|    string command;
+   21|     49|    ifs >> command;
+   22|       |    // single word commands
+   23|     49|    if (command == "size") {
+   24|      3|      cout << "Executing: " << command << endl;
+   25|      3|      cout << pdx.size() << endl;
+   26|     46|    } else if (command == "max_size") {
+   27|      1|      cout << "Executing: " << command << endl;
+   28|      1|      cout << Pokedex::max_size() << endl;
+   29|     45|    } else if (command == "empty") {
+   30|      2|      cout << "Executing: " << command << endl;
+   31|      2|      cout << (pdx.empty() ? "true" : "false") << endl;
+   32|     43|    } else if (command == "front") {
+   33|      3|      cout << "Executing: " << command << endl;
+   34|      3|      cout << pdx.front() << endl;
+   35|     40|    } else if (command == "back") {
+   36|      3|      cout << "Executing: " << command << endl;
+   37|      3|      cout << pdx.back() << endl;
+   38|     37|    } else if (command == "pop_back") {
+   39|       |      // no output
+   40|      2|      cout << "Executing: " << command << endl;
+   41|      2|      pdx.pop_back();
+   42|     35|    } else if (command == "print") {
+   43|       |      // call insertion operator
+   44|      8|      cout << "Executing: " << command << endl;
+   45|      8|      cout << pdx << endl;
+   46|     27|    } else if (command == "at") {
+   47|      2|      int num;
+   48|      2|      ifs >> num;
+   49|      2|      cout << "Executing: " << command << " " << num << endl;
+   50|      2|      cout << pdx.at(num) << endl;
+   51|     25|    } else if (command == "insert") {
+   52|       |      // no output
+   53|     17|      string book;
+   54|       |      // skip the space after num
+   55|     17|      ifs.ignore();
+   56|       |      // read the whole line, not just up to the first space
+   57|     17|      getline(ifs, book);
+   58|     17|      cout << "Executing: " << command << " " << book << endl;
+   59|     17|      pdx.insert(book);
+   60|     17|    } else if (command == "erase") {
+   61|       |      // no output
+   62|      4|      int num;
+   63|      4|      ifs >> num;
+   64|      4|      cout << "Executing: " << command << " " << num << endl;
+   65|      4|      pdx.erase(num);
+   66|      4|    } else {
+   67|      4|      cout << "Invalid command: " << command << endl;
+   68|      4|    }
+   69|     49|  }
+   70|      3|  ifs.close();
+   71|      3|}
+
+/home/cssuwbstudent/adonyas/2023win342d-p1-AdonyasKibru/pokedex.cpp:
+    1|       |
+    2|       |#include "pokedex.h"
+    3|       |#include <iostream>
+    4|       |#include <string>
+    5|       |
+    6|       |using namespace std;
+    7|       |
+    8|       |// Constructor
+    9|      7|Pokedex::Pokedex() {}
+   10|       |
+   11|       |// The function returns the size of the pokemons
+   12|     34|int Pokedex::size() const { return msize; }
+   13|       |
+   14|       |// Retrun maximum size, capacity of Pokemons
+   15|      1|int Pokedex::max_size() { return MAX; }
+   16|       |
+   17|       |// returns true if the pokemons is empty
+   18|     18|bool Pokedex::empty() const { return msize == 0; }
+   19|       |
+   20|       |// return pokemon based of its index number
+   21|     33|const string &Pokedex::at(int n) const {
+   22|     33|  if (n < 0 || n >= msize) {
+   23|      2|    cerr << "The index you entered is wrong!" << endl;
+   24|      2|    n = 0;
+   25|      2|  }
+   26|     33|  return pokemons[n];
+   27|     33|}
+   28|       |
+   29|       |// returns the first pokemon
+   30|      6|const string &Pokedex::front() const { return pokemons[0]; }
+   31|       |
+   32|       |// returns the last pokemon
+   33|      6|const string &Pokedex::back() const {
+   34|      6|  if (msize == 0) {
+   35|      1|    return pokemons[0];
+   36|      1|  }
+   37|      5|  return pokemons[msize - 1];
+   38|      6|}
+   39|       |
+   40|       |// this function adds a pokemon while also keeping the list sorted
+   41|       |// alphabetically
+   42|     23|void Pokedex::insert(const string &pokemon) {
+   43|     23|  if (msize == MAX) {
+   44|      1|    return;
+   45|      1|  }
+   46|       |
+   47|     22|  if (msize == 0) {
+   48|      7|    pokemons[0] = pokemon;
+   49|     15|  } else if (pokemon < pokemons[0]) {
+   50|     10|    for (int j = 0; j < msize; j++) {
+   51|      6|      pokemons[msize - j] = pokemons[msize - 1 - j];
+   52|      6|    }
+   53|      4|    pokemons[0] = pokemon;
+   54|     11|  } else {
+   55|     47|    for (int j = 0; j < msize - 1; j++) {
+   56|     36|      pokemons[msize - j] = pokemons[msize - 1 - j];
+   57|     36|    }
+   58|     11|    pokemons[1] = pokemon;
+   59|     11|  }
+   60|     22|  msize++;
+   61|     22|}
+   62|       |
+   63|       |// this function delete the last element
+   64|      2|void Pokedex::pop_back() {
+   65|      2|  if (msize == 0) {
+   66|      1|    cerr << "their are no elements in the pokedex" << endl;
+   67|      1|    return;
+   68|      1|  }
+   69|      1|  msize--;
+   70|      1|}
+   71|       |
+   72|       |// this function eases the pokemon on the given index value
+   73|      6|void Pokedex::erase(int n) {
+   74|      6|  if (n < 0 || n >= msize) {
+   75|      2|    cerr << "the index value you entered is wrong!" << endl;
+   76|      2|    return;
+   77|      2|  }
+   78|      8|  for (int i = 0; i < msize - n - 1; i++) {
+   79|      4|    pokemons[n + i] = pokemons[n + 1 + i];
+   80|      4|  }
+   81|      4|  msize--;
+   82|      4|}
+   83|       |
+   84|       |// This function is used to print out the pokemons
+   85|     14|ostream &operator<<(ostream &out, const Pokedex &pdx) {
+   86|     14|  out << "[";
+   87|     14|  if (!pdx.empty()) {
+   88|     11|    out << pdx.at(0);
+   89|     28|    for (int i = 1; i < pdx.size(); i++) {
+   90|     17|      out << ", " << pdx.at(i);
+   91|     17|    }
+   92|     11|  }
+   93|     14|  out << "]";
+   94|     14|  return out;
+   95|     14|}
+
+Fri Apr  7 03:04:54 UTC 2023
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================

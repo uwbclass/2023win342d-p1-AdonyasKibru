@@ -8,19 +8,19 @@ using namespace std;
 // Constructor
 Pokedex::Pokedex() {}
 
-// The function returns the size of the pokedex
+// The function returns the size of the pokemons
 int Pokedex::size() const { return msize; }
 
-// Retrun maximum size, capacity of Pokedex
+// Retrun maximum size, capacity of Pokemons
 int Pokedex::max_size() { return MAX; }
 
-// returns true if the pokedex is empty
+// returns true if the pokemons is empty
 bool Pokedex::empty() const { return msize == 0; }
 
 // return pokemon based of its index number
 const string &Pokedex::at(int n) const {
   if (n < 0 || n >= msize) {
-    cerr << "The index you entered is wrong!";
+    cerr << "The index you entered is wrong!" << endl;
     n = 0;
   }
   return pokemons[n];
@@ -30,13 +30,20 @@ const string &Pokedex::at(int n) const {
 const string &Pokedex::front() const { return pokemons[0]; }
 
 // returns the last pokemon
-const string &Pokedex::back() const { return Pokedex::pokemons[msize - 1]; }
+const string &Pokedex::back() const {
+  if (msize == 0) {
+    return pokemons[0];
+  }
+  return pokemons[msize - 1];
+}
 
-// this function adds a pokemon will keeping the list sorted
+// this function adds a pokemon while also keeping the list sorted
+// alphabetically
 void Pokedex::insert(const string &pokemon) {
-  if (Pokedex::msize == Pokedex::MAX) {
+  if (msize == MAX) {
     return;
   }
+
   if (msize == 0) {
     pokemons[0] = pokemon;
   } else if (pokemon < pokemons[0]) {
@@ -45,14 +52,10 @@ void Pokedex::insert(const string &pokemon) {
     }
     pokemons[0] = pokemon;
   } else {
-    int value = 1;
-    while (pokemons[value] > pokemon) {
-      value++;
-    }
-    for (int j = 0; j < msize - value; j++) {
+    for (int j = 0; j < msize - 1; j++) {
       pokemons[msize - j] = pokemons[msize - 1 - j];
     }
-    pokemons[value] = pokemon;
+    pokemons[1] = pokemon;
   }
   msize++;
 }
@@ -60,35 +63,33 @@ void Pokedex::insert(const string &pokemon) {
 // this function delete the last element
 void Pokedex::pop_back() {
   if (msize == 0) {
-    cerr << "their are no elements in the pokedex";
-  } else {
-    msize--;
+    cerr << "their are no elements in the pokedex" << endl;
+    return;
   }
+  msize--;
 }
 
 // this function eases the pokemon on the given index value
 void Pokedex::erase(int n) {
   if (n < 0 || n >= msize) {
     cerr << "the index value you entered is wrong!" << endl;
-  } else {
-    for (int i = 0; i < msize - n - 1; i++) {
-      pokemons[n + i] = pokemons[n + 1 + i];
-    }
-    msize--;
+    return;
   }
+  for (int i = 0; i < msize - n - 1; i++) {
+    pokemons[n + i] = pokemons[n + 1 + i];
+  }
+  msize--;
 }
 
-// insertion operator, so we can use "cout << pdx"
+// This function is used to print out the pokemons
 ostream &operator<<(ostream &out, const Pokedex &pdx) {
-  if (pdx.empty()) {
-    out << "[]";
-  } else {
-    out << "[" << pdx.at(0);
+  out << "[";
+  if (!pdx.empty()) {
+    out << pdx.at(0);
     for (int i = 1; i < pdx.size(); i++) {
       out << ", " << pdx.at(i);
     }
-    out << "]";
   }
-
+  out << "]";
   return out;
 }

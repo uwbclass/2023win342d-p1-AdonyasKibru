@@ -16,3 +16,4 @@ Introduces the following concepts:
 - using clang-tidy, clang-format and code coverage tools
 - g++ flags and valgrind to check for memory leaks
 
+// There are no leaks but suveral warnings were printed out when the wrong index are used in calling the funcations.

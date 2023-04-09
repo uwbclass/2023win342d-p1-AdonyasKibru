@@ -8,16 +8,16 @@ using namespace std;
 // Constructor
 Pokedex::Pokedex() {}
 
-// The function returns the size of the pokemons
+// The function returns the current size of the pokemons
 int Pokedex::size() const { return msize; }
 
 // Retrun maximum size, capacity of Pokemons
 int Pokedex::max_size() { return MAX; }
 
-// returns true if the pokemons is empty
+// returns true if pokemons is empty
 bool Pokedex::empty() const { return msize == 0; }
 
-// return pokemon based of its index number
+// return pokemon based of its index number from the pokemons
 const string &Pokedex::at(int n) const {
   if (n < 0 || n >= msize) {
     cerr << "The index you entered is wrong!" << endl;
@@ -69,7 +69,8 @@ void Pokedex::pop_back() {
   msize--;
 }
 
-// this function eases the pokemon on the given index value
+// this function erases the pokemon on the given index value
+// while keeping the order intacted
 void Pokedex::erase(int n) {
   if (n < 0 || n >= msize) {
     cerr << "the index value you entered is wrong!" << endl;
